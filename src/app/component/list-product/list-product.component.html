@@ -1,0 +1,21 @@
+
+<table>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Details</th>
+      <th>Sua</th>
+      <th>Xoa</th>
+    </tr>
+  <tr *ngFor="let p of productList">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.quantity}}</td>
+      <td>{{p.price}}</td>
+    <td><a [routerLink]="['/details',p.id]" routerLinkActive="router-link-active" >Chi tiết</a></td>
+    <td><a [routerLink]="['/update',p.id]" routerLinkActive="router-link-active" >Sửa</a></td>
+    <td><a [routerLink]="['/delete',p.id]" routerLinkActive="router-link-active" >Xoa</a></td>
+  </tr>
+</table>

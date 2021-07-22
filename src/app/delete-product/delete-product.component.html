@@ -1,0 +1,24 @@
+<form [formGroup]="productForm" (ngSubmit)="deleteProduct()">
+  <table>
+    <tr>
+      <td><input hidden type="number"  formControlName="id"></td>
+    </tr>
+    <tr>
+      <td>Tên sp:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>  <tr>
+
+    <td>So luong:</td>
+    <td><input type="text" formControlName="quantity"></td>
+  </tr>  <tr>
+
+    <td>Gia ban:</td>
+    <td><input type="text" formControlName="price"></td>
+  </tr>
+
+    <tr>
+      <td></td>
+      <td><button>Xoa</button></td>
+    </tr>
+  </table>
+</form>
