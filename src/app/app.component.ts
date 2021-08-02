@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UserToken} from "./models/user-token";
+import {AuthenticationService} from "./service/authentication/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'product-connect-backend';
+
+  currentUser: UserToken = {};
+
+  constructor(private authenticationService: AuthenticationService) {
+    this.currentUser = authenticationService.currentUserValue;
+  }
+
+  ngOnInit(){
+
+  }
+
 }

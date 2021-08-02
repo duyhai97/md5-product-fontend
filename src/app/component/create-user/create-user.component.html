@@ -1,0 +1,36 @@
+<h1>Create</h1>
+
+<form  [formGroup]="userForm" (ngSubmit)="createUser()">
+<!--  <div class="mb-3">-->
+
+
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">username</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2"
+           formControlName="username" style=" width: 500px">
+  </div>
+
+  <div class="mb-3">
+    <label for="formGroupExampleInput3" class="form-label">password</label>
+    <input type="text" class="form-control" id="formGroupExampleInput3"
+              formControlName="password" style=" width: 500px">
+  </div>
+<!--  <label for="formGroupExampleInput1" class="form-label"> name</label>-->
+<!--  <input type="text" class="form-control" id="formGroupExampleInput1"-->
+<!--         formControlName="fullName" style=" width: 500px">-->
+<!--</div>-->
+
+  <!-- <div class="mb-3">
+    <label for="formGroupExampleInput4" class="form-label">role</label>
+    <input type="text" class="form-control" id="formGroupExampleInput4"
+              formControlName="role" style=" width: 500px">
+  </div> -->
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Create</button> &nbsp;&nbsp;
+    <button  class="btn btn-primary" (click)="exit()">Exit</button>
+  </div>
+
+</form>
+
+

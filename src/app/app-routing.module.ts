@@ -1,27 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ListProductComponent} from "./component/list-product/list-product.component";
-import {UpdateProductComponent} from "./component/update-product/update-product.component";
-import {CreateProductComponent} from "./component/create-product/create-product.component";
-import {DetailsComponent} from "./component/details/details.component";
-import {DeleteProductComponent} from "./delete-product/delete-product.component";
+import {LoginComponent} from "./component/login/login.component";
+import {ListComponent} from "./component/product/list/list.component";
+import {CreateUserComponent} from "./component/create-user/create-user.component";
+import {UploadAvatarComponent} from "./component/upload-avatar/upload-avatar.component";
+
+
 
 const routes: Routes = [
-  {path:'list', component:ListProductComponent
-  },
-  {path:'details/:id', component:DetailsComponent},
+
   {
-    path: 'update/:id',
-    component: UpdateProductComponent
+    path:"login",
+   component:LoginComponent
   },
   {
-    path:'delete/:id',
-    component: DeleteProductComponent
+    path:"list", component:ListComponent
   },
   {
-    path:'create',
-    component: CreateProductComponent
+    path:"create",
+    component:CreateUserComponent
+  },
+  {
+    path:"uploadAvatar",
+    component:UploadAvatarComponent
   }
+
 ];
 
 @NgModule({

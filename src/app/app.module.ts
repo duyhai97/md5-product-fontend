@@ -3,31 +3,45 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListProductComponent } from './component/list-product/list-product.component';
-import { CreateProductComponent } from './component/create-product/create-product.component';
-import { UpdateProductComponent } from './component/update-product/update-product.component';
-import {HttpClientModule} from "@angular/common/http";
+
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { DetailsComponent } from './component/details/details.component';
-import { DeleteProductComponent } from './delete-product/delete-product.component';
+import { LoginComponent } from './component/login/login.component';
+import { ListComponent } from './component/product/list/list.component';
+import {JwtInterceptor} from "./helper/jwt-interceptor";
+import {ErrorInterceptor} from "./helper/error-interceptor";
+import {NavbarComponent} from './component/nav-bar/nav-bar/nav-bar.component';
+import { CreateUserComponent } from './component/create-user/create-user.component';
+import {AngularFireModule} from "@angular/fire";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {environment} from "../environments/environment";
+import { UploadAvatarComponent } from './component/upload-avatar/upload-avatar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListProductComponent,
-    CreateProductComponent,
-    UpdateProductComponent,
-    DetailsComponent,
-    DeleteProductComponent
+    LoginComponent,
+    ListComponent,
+    NavbarComponent,
+     CreateUserComponent,
+     UploadAvatarComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

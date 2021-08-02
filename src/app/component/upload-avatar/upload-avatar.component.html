@@ -1,0 +1,10 @@
+<p>upload-avatar works!</p>
+
+<form  [formGroup]="userForm" (ngSubmit)="editAvatar()">
+  <div>
+    <input (change)="setAvatar($event)"  type="file" formControlName="name">
+    <img src="{{avatarUrl}}" style="height: 100px; width: 100px" alt=""  >
+    <button (click)="addAvatar()"> Them avatar</button>
+  </div>
+  <div><button type="submit">edit</button></div>
+</form>
